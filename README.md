@@ -248,4 +248,66 @@ This builds trust and transparency in the community, encourages quality service,
 6. ** Payment Processing **
 
 Handles secure transactions for bookings, including payment authorization, capture, and status tracking (e.g., completed, refunded).
-This ensures financial reliability and regulatory compliance, directly supporting the platform’s monetization and user confidence. 
+This ensures financial reliability and regulatory compliance, directly supporting the platform’s monetization and user confidence.
+
+### API Security 
+
+1. Authentication (User Identity Verification) 
+
+Measures:   
+
+    Secure password storage using bcrypt or Argon2 hashing.  
+    JWT (JSON Web Tokens) or session-based authentication with HTTPS-only cookies.  
+    Multi-factor authentication (MFA) (optional but recommended for host/admin accounts).
+     
+
+Why It’s Crucial:
+Authentication ensures that only legitimate users can access the system. Without it, anyone could impersonate a host or guest, leading to account takeovers, fake listings, or unauthorized bookings. Protecting login credentials also prevents breaches of personal data (emails, phone numbers, addresses). 
+ 
+2. Authorization (Access Control) 
+
+Measures:   
+
+    Role-based access control (RBAC): Guests, hosts, and admins have different permissions.  
+    Validate ownership on every sensitive operation (e.g., “Can this user edit this property?”).  
+    Never trust client-side claims—always verify permissions on the server.
+     
+
+Why It’s Crucial:
+Authorization prevents users from performing actions they shouldn’t—like a guest deleting another host’s property or viewing another user’s payment history. This protects data integrity, privacy, and business logic. 
+ 
+3. Secure Payment Handling 
+
+Measures:   
+
+    Never store raw credit card data—use PCI-compliant payment gateways (e.g., Stripe, Flutterwave, or Safaricom Daraja).  
+    Use webhook signature verification to confirm payment notifications are genuine.  
+    Encrypt sensitive transaction metadata at rest (e.g., booking amounts, user IDs).
+     
+
+Why It’s Crucial:
+Payments involve financial data and regulatory compliance (PCI-DSS). A breach could lead to monetary loss, legal liability, and loss of user trust. Even partial exposure (e.g., booking amounts linked to users) can enable fraud or social engineering. 
+ 
+4. Input Validation & Sanitization 
+
+Measures:   
+
+    Validate and sanitize all user inputs (e.g., property titles, reviews, search queries).  
+    Use parameterized queries or ORMs (like Django ORM) to prevent SQL injection.  
+    Escape output to prevent Cross-Site Scripting (XSS) in reviews or messages.
+     
+
+Why It’s Crucial:
+Unsanitized inputs can lead to data leaks, account hijacking, or full system compromise. For example, a malicious script in a review could steal session cookies from other users viewing it. 
+ 
+5. Rate Limiting & API Abuse Prevention 
+
+Measures:   
+
+    Implement rate limiting (e.g., 100 requests/minute per IP/user) using tools like Django Ratelimit or Redis.  
+    Add CAPTCHA for sensitive actions (e.g., login, booking).  
+    Monitor and block suspicious patterns (e.g., rapid property scraping).
+     
+
+Why It’s Crucial:
+Without rate limiting, attackers can spam bookings, scrape listings, brute-force passwords, or DDoS the API. This degrades performance for real users and increases infrastructure costs. 
