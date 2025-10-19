@@ -197,7 +197,7 @@ Relationships:
 - A Property can have many Reviews.  
 - Host reviews of guests can be modeled similarly with a reviewee_id
 
-5. Payment
+5. ** Payment **
 
 Represents a financial transaction for a booking.
 Important Fields:   
@@ -216,4 +216,36 @@ Relationships:
 - A Payment is linked to one Booking and one User (the payer).  
 - A Booking typically has one primary Payment, though partial or split payments could be supported.  
 - Payments are tied to the financial lifecycle of a booking.
-     
+
+
+### Feature Breakdown
+
+1. ** User Management **
+
+Allows users to register, log in, manage profiles, and switch between guest and host roles.
+This feature forms the foundation of the platform by enabling secure authentication, role-based access, and personalized experiences—critical for both user trust and system security. 
+ 
+2. ** Property Listing & Management **
+
+Enables hosts to create, edit, and manage their rental listings (e.g., apartments, rooms) with details like title, description, location, price, and availability.
+This is central to the business model, as it populates the marketplace with bookable inventory and supports rich search and filtering capabilities for guests. 
+ 
+3. ** Booking System **
+
+Allows guests to reserve a property for specific dates, view booking history, and manage (e.g., cancel) active reservations.
+It orchestrates the core transactional workflow of the platform, linking users, properties, payments, and availability logic into a seamless user journey. 
+ 
+4. ** Search and Discovery **
+
+Provides guests with the ability to search for properties by location, dates, price range, and amenities, with real-time availability checks.
+This drives user engagement and conversion by helping guests quickly find relevant listings—making it essential for a competitive marketplace experience. 
+ 
+5. ** Review and Rating System **
+
+Enables guests to leave reviews and ratings for properties after a stay, and optionally allows hosts to review guests.
+This builds trust and transparency in the community, encourages quality service, and provides valuable feedback for future users and hosts. 
+ 
+6. ** Payment Processing **
+
+Handles secure transactions for bookings, including payment authorization, capture, and status tracking (e.g., completed, refunded).
+This ensures financial reliability and regulatory compliance, directly supporting the platform’s monetization and user confidence. 
