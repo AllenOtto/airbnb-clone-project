@@ -102,3 +102,18 @@ GitHub Actions is a CI/CD (Continuous Integration/Continuous Delivery) service b
 - Automate workflows such as testing, building, and deploying code whenever changes are pushed
 - Run test suites on multiple OS/runtime configurations.
 - Publish packages or deploy to cloud platforms automatically
+
+6. ** PostgreSQL **
+
+PostgreSQL is an advanced, open-source relational database system known for its reliability, extensibility, and compliance with SQL standards. In development projects, it:
+
+- Stores structured and semi-structured data (including JSON)
+- Supports complex queries, transactions, and ACID compliance
+
+7. ** GraphQL **
+
+GraphQL is a query language and runtime for APIs that allows clients to request exactly the data they need—nothing more, nothing less. Its role in development includes:
+
+- Replacing or complementing REST APIs with more flexible, efficient data fetching
+- Reducing over-fetching and under-fetching of data
+- Enabling frontend teams to iterate faster without waiting for backend changes
