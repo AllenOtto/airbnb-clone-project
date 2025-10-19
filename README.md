@@ -256,9 +256,9 @@ This ensures financial reliability and regulatory compliance, directly supportin
 
 Measures:   
 
-    Secure password storage using bcrypt or Argon2 hashing.  
-    JWT (JSON Web Tokens) or session-based authentication with HTTPS-only cookies.  
-    Multi-factor authentication (MFA) (optional but recommended for host/admin accounts).
+- Secure password storage using bcrypt or Argon2 hashing.  
+- JWT (JSON Web Tokens) or session-based authentication with HTTPS-only cookies.  
+- Multi-factor authentication (MFA) (optional but recommended for host/admin accounts).
      
 
 Why It’s Crucial:
@@ -311,3 +311,32 @@ Measures:
 
 Why It’s Crucial:
 Without rate limiting, attackers can spam bookings, scrape listings, brute-force passwords, or DDoS the API. This degrades performance for real users and increases infrastructure costs. 
+
+### CI/CD Pipeline
+
+CI/CD pipelines (Continuous Integration and Continuous Delivery/Deployment) are automated workflows that streamline the software development lifecycle by: 
+
+    Continuously integrating code changes from multiple contributors into a shared repository (usually multiple times a day),  
+    Automatically building and testing the application to catch bugs early, and  
+    Continuously delivering or deploying validated code to staging or production environments with minimal manual intervention.
+     
+
+Why CI/CD Is Important for the Project: 
+
+In the context of the Airbnb Clone Project, CI/CD ensures: 
+
+    Faster, safer releases: New features (e.g., booking logic, payment integration) can be deployed quickly without breaking existing functionality.
+    Higher code quality: Automated tests run on every push, reducing human error.
+    Consistent environments: Using containers (like Docker), development, testing, and production environments stay aligned.
+    Efficient collaboration: Team members can integrate work frequently without conflicts, supporting Agile workflows.
+     
+
+Tools That Could Be Used: 
+
+    GitHub Actions: Automates testing, building, and deployment directly from your GitHub repository.
+    Docker: Packages the application and dependencies into containers for reliable, reproducible deployments.
+    Other CI/CD platforms: GitLab CI, Jenkins, or CircleCI (though GitHub Actions is ideal if using GitHub).
+    Cloud platforms: Render, Railway, or AWS for deployment targets.
+     
+
+By implementing CI/CD—as highlighted in the project’s learning objectives—you adopt industry-grade practices that boost reliability, scalability, and team productivity. 
