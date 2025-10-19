@@ -117,3 +117,103 @@ GraphQL is a query language and runtime for APIs that allows clients to request 
 - Replacing or complementing REST APIs with more flexible, efficient data fetching
 - Reducing over-fetching and under-fetching of data
 - Enabling frontend teams to iterate faster without waiting for backend changes
+
+### Database Design
+
+1. ** User **
+
+Represents anyone using the platform—both guests and hosts.
+
+Important Fields:   
+
+- id (primary key)  
+- email (unique, for login)  
+- first_name, last_name  
+- phone_number  
+- user_type 
+
+Relationships:   
+
+- A User can be a host who owns multiple Properties.  
+- A User (as a guest) can create multiple Bookings.  
+- A User can write multiple Reviews (as a guest for properties, or as a host for guests).
+
+2. ** Property **
+
+Represents a bookable listing (e.g. apartment) owned by a host.
+Important Fields:   
+
+- id (primary key)  
+- title (e.g., “Cozy Downtown Loft”)  
+- description  
+- location (city, country, or geocoordinates)  
+- price_per_night  
+- host_id (foreign key → User.id)
+     
+
+Relationships:   
+
+- A Property belongs to one User (the host).  
+- A Property can have multiple Bookings.  
+- A Property can receive multiple Reviews from guests.  
+- Property may be associated with multiple Payments (via bookings)
+
+** 3. Booking **
+
+Represents a reservation made by a guest for a property over a date range.
+Important Fields:   
+
+- id (primary key)  
+- property_id (foreign key → Property.id)  
+- guest_id (foreign key → User.id)  
+- check_in_date  
+- check_out_date  
+- total_price  
+- status (e.g., “confirmed”, “cancelled”, “completed”)
+     
+
+Relationships:   
+
+- A Booking belongs to one Property and one Guest (User).  
+- A Booking triggers one or more Payments.  
+- A completed Booking may lead to a Review from the guest.
+
+** 4. Review **
+
+Represents feedback from a guest about a property (and optionally, from a host about a guest).
+Important Fields:   
+
+- id (primary key)  
+- property_id (foreign key → Property.id)  
+- reviewer_id (foreign key → User.id)  
+- rating (e.g., 1–5 stars)  
+- comment  
+- created_at
+     
+
+Relationships:   
+
+- A Review is about one Property and written by one User (guest).  
+- A Property can have many Reviews.  
+- Host reviews of guests can be modeled similarly with a reviewee_id
+
+5. Payment
+
+Represents a financial transaction for a booking.
+Important Fields:   
+
+- id (primary key)  
+- booking_id (foreign key → Booking.id)  
+- payer_id (foreign key → User.id)  
+- amount  
+- payment_method (e.g., “credit_card”, “mobile_money”)  
+- status (e.g., “pending”, “completed”, “failed”)  
+- transaction_id (from payment gateway)
+     
+
+Relationships:   
+
+- A Payment is linked to one Booking and one User (the payer).  
+- A Booking typically has one primary Payment, though partial or split payments could be supported.  
+- Payments are tied to the financial lifecycle of a booking.
+     
