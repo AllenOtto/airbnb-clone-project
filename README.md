@@ -61,3 +61,44 @@ Shapes how users interact with and experience the product
 - UX Designer: Conducts user research, creates personas, designs user journeys, wireframes, and prototypes
 - UI Designer: Crafts visually appealing, intuitive, and responsive interfaces
 - Together, they ensure the product is usable, engaging, and goal-oriented
+
+### Technology Stack
+
+1. ** Github **
+
+GitHub is a cloud-based platform for hosting and managing Git repositories. It enables developers to:
+
+- Collaborate via pull requests, code reviews, and issue tracking
+- Integrate with CI/CD tools (like GitHub Actions) for automated workflows
+
+2. ** Django **
+
+Django is a high-level Python-based backend web framework that follows the "batteries-included" philosophy. Its role includes:
+
+- Rapidly building secure, scalable web applications with built-in features (ORM, authentication, admin panel)
+- Structuring backend logic, handling HTTP requests, and connecting to databases
+- Enforcing best practices like MVC (Model-View-Template) architecture
+
+3. ** MySQL **
+
+MySQL is a widely used relational database management system (RDBMS). In development projects, it:
+
+- Stores structured application data (e.g., users, transactions, settings) in tables with defined schemas
+- Supports complex queries, transactions, and data integrity through SQL
+- Integrates with backend frameworks (like Django) via ORMs to persist and retrieve data reliably
+
+4. ** Docker **
+
+Docker is a containerization platform that packages applications and their dependencies into isolated, portable containers. Its role includes:
+
+- Ensuring consistent environments across development, testing, and production ("it works on my machine" problem solved)
+- Simplifying deployment and scaling of microservices or monolithic apps
+- Enabling reproducible builds and easy integration with CI/CD pipelines
+
+5. ** Github Actions **
+
+GitHub Actions is a CI/CD (Continuous Integration/Continuous Delivery) service built into GitHub. It allows teams to:   
+
+- Automate workflows such as testing, building, and deploying code whenever changes are pushed
+- Run test suites on multiple OS/runtime configurations.
+- Publish packages or deploy to cloud platforms automatically
